@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bloom — Mental Wellness Tracker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">✿</span><span>Bloom<span class="brand-small">wellness space</span></span></a>
+      <p class="nav-label">YOUR SPACE</p>
+      <nav>
+        <a class="nav-link active" href="#overview">⌂ <span>Overview</span></a>
+        <a class="nav-link" href="#mood">♡ <span>Mood tracker</span></a>
+        <a class="nav-link" href="#journal">✎ <span>Daily journal</span></a>
+        <a class="nav-link" href="#history">▤ <span>Mood history</span></a>
+        <a class="nav-link" href="#wellness">☾ <span>Wellness tools</span></a>
+      </nav>
+      <div class="sidebar-note">
+        <span class="note-flower">✿</span>
+        <strong>A gentle reminder</strong>
+        <p>You don't have to have it all figured out today. Just take one small step.</p>
+      </div>
+      <p class="sidebar-foot">A little care, every day ♡</p>
+    </aside>
+
+    <main class="main-content" id="overview">
+      <header class="topbar">
+        <div><p class="eyebrow" id="today-date">YOUR WELLNESS JOURNEY</p><h1>Hello, lovely <span>♡</span></h1><p class="subtitle">Take a breath. This moment is yours.</p></div>
+        <div class="top-pill"><span class="online-dot"></span> Your private space</div>
+      </header>
+
+      <section class="quote-banner">
+        <div><p class="eyebrow light">A THOUGHT FOR TODAY</p><blockquote id="quote-text">“You are allowed to grow at your own pace.”</blockquote><p class="quote-by" id="quote-author">— A gentle reminder</p></div>
+        <button class="quote-refresh" id="new-quote" aria-label="New quote">↻</button>
+        <span class="banner-flower">✿</span>
+      </section>
+
+      <section class="section" id="mood">
+        <div class="section-heading"><div><p class="eyebrow">CHECK IN WITH YOURSELF</p><h2>How are you feeling today?</h2></div><span class="soft-tag">No feeling is wrong</span></div>
+        <div class="mood-grid" id="mood-options">
+          <button class="mood-option" data-mood="Amazing" data-emoji="🤩"><span>🤩</span><b>Amazing</b></button>
+          <button class="mood-option" data-mood="Happy" data-emoji="😊"><span>😊</span><b>Happy</b></button>
+          <button class="mood-option" data-mood="Okay" data-emoji="🙂"><span>🙂</span><b>Okay</b></button>
+          <button class="mood-option" data-mood="Anxious" data-emoji="😟"><span>😟</span><b>Anxious</b></button>
+          <button class="mood-option" data-mood="Sad" data-emoji="😔"><span>😔</span><b>Sad</b></button>
+          <button class="mood-option" data-mood="Tired" data-emoji="😴"><span>😴</span><b>Tired</b></button>
+        </div>
+        <p class="status-message" id="mood-message" aria-live="polite">Choose the mood that feels closest to how you are right now.</p>
+      </section>
+
+      <section class="section" id="journal">
+        <div class="section-heading"><div><p class="eyebrow">LET YOUR THOUGHTS FLOW</p><h2>Daily journal</h2></div><span class="section-icon">✎</span></div>
+        <div class="journal-card">
+          <label for="journal-entry">What's on your mind today?</label>
+          <textarea id="journal-entry" rows="4" placeholder="Write freely. This space is just for you..."></textarea>
+          <div class="journal-bottom"><span id="journal-date">Today's reflection</span><button class="primary-btn" id="save-journal">Save my thoughts <span>♡</span></button></div>
+          <p class="status-message" id="journal-message" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="section" id="wellness">
+        <div class="section-heading"><div><p class="eyebrow">SMALL STEPS MATTER</p><h2>Your wellness check-in</h2></div></div>
+        <div class="tracker-grid">
+          <article class="tracker-card">
+            <div class="card-top"><span class="tracker-icon pink">♡</span><span class="mini-label">TODAY</span></div>
+            <h3>Stress level</h3><p class="muted">How stressed do you feel?</p>
+            <div class="range-row"><input id="stress-level" type="range" min="1" max="10" value="4"><strong id="stress-value">4/10</strong></div>
+            <button class="text-btn" id="save-stress">Save stress level →</button>
+            <p class="tiny-status" id="stress-message"></p>
+          </article>
+          <article class="tracker-card">
+            <div class="card-top"><span class="tracker-icon lilac">☾</span><span class="mini-label">LAST NIGHT</span></div>
+            <h3>Sleep tracker</h3><p class="muted">How many hours did you sleep?</p>
+            <div class="sleep-row"><input id="sleep-hours" type="number" min="0" max="24" step="0.5" value="7" aria-label="Hours slept"><span>hours</span></div>
+            <button class="text-btn" id="save-sleep">Save sleep →</button>
+            <p class="tiny-status" id="sleep-message"></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-heading"><div><p class="eyebrow">PAUSE AND RESET</p><h2>A moment for you</h2></div></div>
+        <div class="practice-grid">
+          <article class="practice-card meditation-card">
+            <span class="practice-symbol">☾</span><div><h3>Meditation moment</h3><p>Give yourself a quiet minute to pause.</p></div>
+            <div class="timer-display" id="meditation-time">01:00</div>
+            <button class="primary-btn" id="meditation-start">Start meditation</button>
+            <button class="subtle-btn" id="meditation-reset">Reset timer</button>
+            <p class="tiny-status" id="meditation-message" aria-live="polite">Find a comfortable position.</p>
+          </article>
+          <article class="practice-card breathing-card">
+            <span class="practice-symbol">❀</span><div><h3>Breathing exercise</h3><p>Try a gentle 4–4–4 breathing rhythm.</p></div>
+            <div class="breath-circle" id="breath-circle"><span id="breath-instruction">Ready?</span></div>
+            <button class="primary-btn" id="breathing-start">Start breathing</button>
+            <button class="subtle-btn" id="breathing-stop">Stop</button>
+            <p class="tiny-status" id="breathing-message" aria-live="polite">Breathe gently. Stop if you feel uncomfortable.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="history">
+        <div class="section-heading"><div><p class="eyebrow">LOOK HOW FAR YOU'VE COME</p><h2>Your mood history</h2></div><button class="clear-btn" id="clear-history">Clear history</button></div>
+        <div class="history-card"><div class="history-summary"><span class="summary-icon">♡</span><div><strong id="entry-count">0 check-ins</strong><p class="muted">Your recent mood entries</p></div></div><div id="history-list" class="history-list"><p class="empty-state">Your check-ins will appear here. Start by choosing a mood above.</p></div></div>
+      </section>
+      <footer>Made with care for your everyday wellbeing <span>✿</span><p>This tool is for personal reflection and is not a substitute for professional mental-health care.</p></footer>
+    </main>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
